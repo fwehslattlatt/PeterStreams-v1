@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Netflix+Sans:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 0%;
+    --foreground: 120 100% 75%;
+    --card: 120 20% 4%;
+    --card-foreground: 120 100% 75%;
+    --popover: 120 20% 4%;
+    --popover-foreground: 120 100% 75%;
+    --primary: 120 100% 50%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 120 20% 8%;
+    --secondary-foreground: 120 100% 75%;
+    --muted: 120 20% 8%;
+    --muted-foreground: 120 30% 45%;
+    --accent: 120 20% 10%;
+    --accent-foreground: 120 100% 75%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 120 30% 15%;
+    --input: 120 20% 8%;
+    --ring: 120 100% 50%;
+    --radius: 0rem;
+
+    --netflix-red: #E50914;
+    --navy-dark: #0A1628;
+    --navy-mid: #0D1F3C;
+    --navy-light: #1A2F4A;
+    --gold: #F5A623;
+    --cyan: #00B4D8;
+  }
+
+  * {
+    @apply border-border outline-ring/50;
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #111;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+}
+
+.hero-gradient {
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0.7) 40%,
+    transparent 70%
+  ),
+  linear-gradient(
+    to top,
+    rgba(10, 10, 15, 1) 0%,
+    transparent 30%
+  );
+}
+
+.card-hover {
+  transition: transform 0.3s ease, z-index 0s;
+}
+
+.card-hover:hover {
+  transform: scale(1.08);
+  z-index: 10;
+}
+
+.row-scroll {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.row-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.guide-row:nth-child(even) {
+  background-color: rgba(255,255,255,0.02);
+}
+
+.guide-row:hover {
+  background-color: rgba(255,255,255,0.06);
+}
+
+.program-cell {
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.program-cell:hover {
+  background-color: rgba(0, 180, 216, 0.2);
+}
+
+.program-cell.active {
+  background-color: rgba(0, 180, 216, 0.15);
+  border-left: 3px solid #00B4D8;
+}
+
+.tab-active {
+  border-bottom: 3px solid #E50914;
+  color: white;
+}
+
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
