@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
-import { Search, Film, Tv, Music, Radio } from "lucide-react";
+import { Search, Film, Tv, Radio } from "lucide-react";
 import HackerSearchOverlay from "./HackerSearchOverlay";
 
 export default function Header({ activeTab, setActiveTab }) {
   const [scrolled, setScrolled] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
-  const isMusic = activeTab === "music";
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -18,7 +17,7 @@ export default function Header({ activeTab, setActiveTab }) {
     { id: "movies", label: "Movies", icon: Film },
     { id: "tv", label: "TV Shows", icon: Tv },
     { id: "livetv", label: "Live TV", icon: Radio },
-    { id: "music", label: "Music", icon: Music },
+    // music removed
   ];
 
   return (
@@ -66,15 +65,13 @@ export default function Header({ activeTab, setActiveTab }) {
 
           {/* Right */}
           <div className="flex items-center gap-3">
-            {!isMusic && (
-              <button
-                onClick={() => setSearchOpen(true)}
-                className="flex items-center gap-2 px-3 py-2 border border-green-500/30 text-green-400/60 hover:text-green-400 hover:border-green-400/60 transition-all font-mono text-xs uppercase tracking-wider"
-              >
-                <Search size={14} />
-                <span className="hidden sm:block">Search</span>
-              </button>
-            )}
+            <button
+              onClick={() => setSearchOpen(true)}
+              className="flex items-center gap-2 px-3 py-2 border border-green-500/30 text-green-400/60 hover:text-green-400 hover:border-green-400/60 transition-all font-mono text-xs uppercase"
+            >
+              <Search size={14} />
+              <span className="hidden sm:block">Search</span>
+            </button>
           </div>
         </div>
 
