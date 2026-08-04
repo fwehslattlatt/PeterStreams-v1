@@ -101,7 +101,7 @@ export default function LandingPage({ onEnter }) {
           </p>
           <button
             onClick={onEnter}
-            className="relative group px-10 py-3 font-mono font-bold text-lg tracking-widest uppercase overflow-hidden border border-green-400 text-green-400 hover:text-black transition-colors duration-300"
+            className="relative group px-10 py-3 font-mono font-bold text-lg tracking-widest uppercase overflow-hidden border border-green-400 text-green-400 hover:text-black transition-colors du[...]"
             style={{ background: "transparent" }}
           >
             <span
@@ -117,6 +117,11 @@ export default function LandingPage({ onEnter }) {
       <div className="absolute top-4 right-4 text-green-400/30 font-mono text-xs">STATUS: ONLINE</div>
       <div className="absolute bottom-4 left-4 text-green-400/30 font-mono text-xs">UPLINK: SECURE</div>
       <div className="absolute bottom-4 right-4 text-green-400/30 font-mono text-xs">ENCRYPTED</div>
+
+      {/* Contact message */}
+      <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-green-400/80 font-mono text-sm">
+        <a href="mailto:peterstream@aol.com" className="underline">contact us at peterstream@aol.com</a>
+      </div>
     </div>
   );
 }
