@@ -3,7 +3,6 @@ import { AnimatePresence, motion } from "framer-motion";
 import Header from "../components/Header";
 import MoviesPage from "./MoviesPage";
 import TVShowsPage from "./TVShowsPage";
-import MusicPage from "./MusicPage";
 import LiveTVPage from "./LiveTVPage";
 import LandingPage from "./LandingPage";
 
@@ -15,10 +14,10 @@ export default function Home() {
     movies: MoviesPage,
     tv: TVShowsPage,
     livetv: LiveTVPage,
-    music: MusicPage,
+    // music removed
   };
 
-  const ActiveComponent = tabs[activeTab];
+  const ActiveComponent = tabs[activeTab] || MoviesPage;
 
   if (!entered) {
     return <LandingPage onEnter={() => setEntered(true)} />;
