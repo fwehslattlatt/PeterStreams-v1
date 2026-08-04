@@ -5,25 +5,9 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import PageNotFound from './lib/PageNotFound';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
-import { MusicPlayerProvider } from '@/context/MusicPlayerContext';
-import { AnimatePresence } from 'framer-motion';
-import MiniPlayer from '@/components/music/MiniPlayer';
-import ExpandedPlayer from '@/components/music/ExpandedPlayer';
-import { useMusicPlayer } from '@/context/MusicPlayerContext';
+// Removed MusicPlayerProvider and music UI
 // Add page imports here
 import Home from "./pages/Home";
-
-function GlobalMusicUI() {
-  const { showExpanded, currentTrack } = useMusicPlayer();
-  return (
-    <>
-      <AnimatePresence>
-        {showExpanded && <ExpandedPlayer key="expanded" />}
-      </AnimatePresence>
-      {currentTrack && !showExpanded && <MiniPlayer />}
-    </>
-  );
-}
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -51,7 +35,6 @@ const AuthenticatedApp = () => {
         <Route path="/" element={<Home />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
-      <GlobalMusicUI />
     </>
   );
 };
@@ -60,11 +43,9 @@ function App() {
   return (
     <AuthProvider>
       <QueryClientProvider client={queryClientInstance}>
-        <MusicPlayerProvider>
-          <Router>
-            <AuthenticatedApp />
-          </Router>
-        </MusicPlayerProvider>
+        <Router>
+          <AuthenticatedApp />
+        </Router>
         <Toaster />
       </QueryClientProvider>
     </AuthProvider>
