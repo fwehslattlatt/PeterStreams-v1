@@ -109,6 +109,14 @@ export default function LandingPage({ onEnter }) {
             />
             <span className="relative z-10">[ ENTER ]</span>
           </button>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.2, duration: 0.5 }}
+            className="text-green-400 font-mono text-xs italic opacity-60 mt-4"
+          >
+            "LISTEN TO THE TRACK B*TCH" - Waka Flocka Flame
+          </motion.p>
         </motion.div>
       </div>
 
